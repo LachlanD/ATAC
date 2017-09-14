@@ -1,0 +1,5 @@
+Usage:
+
+convert the macs2 peaks xls file to bed with xls_to_bed.py
+input the peaks bed file into extract_reads.py to create a reads file
+open the read file inside ATAC_footprinting.R to find footprints   
