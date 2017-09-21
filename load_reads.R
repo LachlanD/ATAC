@@ -9,25 +9,33 @@ library(data.table)
 #############################
 # Use a small subset of peaks
 small.set = TRUE
-first.n.peaks = 100
+first.n.peaks = 1000
+
 
 ######################################################
 # Load reads in data.frame, change to data.table? 
 ######################################################
 #reads = read.delim('Data/MODEL_120_peaks.reads', header = TRUE, sep = '\t')
-reads = fread('Data/MODEL_120_peaks.reads', header = TRUE, sep = '\t')
-ids = unique(reads$id)
+reads = fread('Data/MODEL_120_peaks.reads', header = TRUE)
+peaks = fread('Data/MODEL_120_peaks.bed', header = FALSE)
+colnames(peaks) = c("chr", "start", "end", "summit", "id")
+
 
 ###################################################
 #Create a limited dataset if wanted
 ###################################################
 if(small.set)
 {
-  ids = ids[1:first.n.peaks]
-  reads=reads[reads$id %in% ids,]
-}
+  peaks = peaks[1:first.n.peaks]
+  reads=reads[reads$id %in% peaks$id,]
+} 
+
+peaks[,centre:=0]
+peaks[,nfootprints:=0]
+peaks[,nreads:=0]
 
 ###################
 # Create a file
 ###################
 save(reads, file="Data/reads_data.Rba")
+save(peaks, file="Data/peaks_data.Rba")

@@ -5,6 +5,7 @@ library(parallel)
 library(data.table)
 source("ATAC_functions.R")
 load("Data/reads_data.Rba")
+load("Data/peaks_data.Rba")
 
 
 ###################
@@ -24,7 +25,7 @@ rel.threshold = 0.5
 footprint.fraction = 0.9
 
 # Distributed execution (Needed for Windows)
-dist_mem = FALSE
+dist_mem = TRUE
 
 # number of cores to use
 no_cores = 0
@@ -37,7 +38,7 @@ if (no_cores==0)
 ################
 # Run
 ################
-ids = unique(reads$id)
+ids = peaks$id
 
 if(dist_mem)
 {
@@ -47,20 +48,13 @@ if(dist_mem)
   cl = makeCluster(no_cores)
   
   # Find the footprints and centres
-  clusterExport(cl=cl, list("process_peak", "find_peaks", "find_footprints", "find_centre", "reads", "min.reads", "min.peak.fraction", "footprint.fraction"))
-  fp.dist = parLapply(cl, ids, function(x){process_peak(id = x, reads = reads[reads$id==x,], min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction )})
+  clusterExport(cl=cl, list("process_peak", "find_peaks", "find_footprints", "find_centre", "reads", "peaks", "min.reads", "rel.threshold", "abs.threshold", "footprint.fraction"))
+  clusterEvalQ(cl, library(data.table))
+  fp.dist = parLapply(cl, ids, function(x){process_peak(x, reads, peaks, min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction )})
   fp = do.call("rbind", fp.dist)
+  fp = as.data.table(fp[complete.cases(fp),])
   
-  # Create a data frame of peaks with the centre of the peak
-  clusterExport(cl=cl, list("fp"))
-  centres = parLapply(cl, ids, function(x){data.frame(x,fp[fp$id==x,][1,]$centre, fp[fp$id==x,][1,]$nfootprints, fp[fp$id==x,][1,]$nreads)})
-  centres = do.call("rbind", centres)
-  colnames(centres) =  c("id", "centre", "no.footprints", "no.reads")
-  
-  # Add the centre paramater to the reads
-  clusterExport(cl=cl, list("centres"))
-  centred_reads = parLapply(cl, ids, function(x){reads[reads$id==x,]$pos-centres[centres$id==x,]$centre})
-  reads$centred.pos=unlist(centred_reads)
+  parLapply(cl, ids, function(x){reads[id==x, cent.pos := pos-peaks[id==x,centre]]})
   
   stopCluster(cl=cl)
 
@@ -78,17 +72,11 @@ if(dist_mem)
   }
   
   # Find centres and footprints
-  fp = mclapply(ids, function(x){process_peak(id = x, reads = reads[reads$id==x,], min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction )}, mc.cores=no_cores, mc.preschedule = TRUE)
+  fp = mclapply(ids, function(x){process_peak(x, reads, peaks, min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction )}, mc.cores=no_cores, mc.preschedule = TRUE)
   fp = do.call("rbind", fp)
+  fp = as.data.table(fp[complete.cases(fp),])
   
-  # Centre of peaks
-  centres = mclapply(ids, function(x){data.frame(x,fp[fp$id==x,][1,2], fp[fp$id==x,][1,3], fp[fp$id==x,][1,5])}, mc.cores = no_cores, mc.preschedule = TRUE)
-  centres = do.call("rbind", centres)
-  colnames(centres) =  c("id", "centre", "no.footprints", "no.reads")
-  
-  # Centre the reads
-  centred_reads = mclapply(ids, function(x){reads[reads$id==x,]$pos-centres[centres$id==x,]$centre},mc.cores = no_cores, mc.preschedule = TRUE)
-  reads$centred.pos=unlist(centred_reads)  
+  reads = mclapply(ids, function(x){reads[id==x, cent.pos := pos-peaks[id==x,centre]]}, mc.cores=no_cores, mc.preschedule = FALSE)
 }
 
 
@@ -97,5 +85,6 @@ if(dist_mem)
 # Save Data structures
 ###########################
 save(fp, file="Data/footprints_data.Rba")
-save(centres, file="Data/peak_centre_data.Rba")
-save(reads, file="Data/centred_reads_data.Rba")
+save(peaks, file="Data/peak_data.Rba")
+save(reads, file="Data/reads_data.Rba")
+
