@@ -73,7 +73,7 @@ if(dist_mem)
   
   # Find centres and footprints
   #fp = mclapply(ids, function(x){process_peak(x, reads[id==x], peaks[id==x], min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction )}, mc.cores=no_cores, mc.preschedule = FALSE)
-  fp = lapply(ids, function(x){process_peak(x, reads[id==x], peaks[id==x], min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction )})
+  fp = lapply(ids, function(x){process_peak(x, reads, peaks, min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction )})
   fp = do.call("rbind", fp)
   fp = as.data.table(fp[complete.cases(fp),])
   
@@ -83,9 +83,9 @@ if(dist_mem)
 f <- function(x,pos){list(peaks[id==x, chr], peaks[id==x, start], peaks[id==x, end], pos+peaks[id==x,summit])}
 invisible(fp[, c("chr", "start", "end" , "position") := f(i,footprint.pos), by = i][])
 
-###########################
+######################################
 # Save Data structures
-###########################
+######################################
 save(fp, file="Data/footprints_data.Rba")
 save(peaks, file="Data/peak_data.Rba")
 save(reads, file="Data/reads_data.Rba")
@@ -94,3 +94,11 @@ save(reads, file="Data/reads_data.Rba")
 # Output footprint positions as BED file
 #############################################
 write.table(fp[,c("chr","start","end","position","i")], file="Data/footprint_positions.bed", sep= "\t", quote= FALSE, row.names = FALSE, col.names = FALSE)
+
+sprintf("number of peaks: %i", nrow(peaks))
+sprintf("number of footprints: %i", nrow(fp))
+sprintf("number of peaks with 0 footprints %i", sum(peaks[,nfootprints==0]))
+sprintf("number of peaks with 1 footprints %i", sum(peaks[,nfootprints==1]))
+sprintf("number of peaks with 2 footprints %i", sum(peaks[,nfootprints==2]))
+sprintf("number of peaks with 3 footprints %i", sum(peaks[,nfootprints==3]))
+sprintf("number of peaks with >3 footprints %i", sum(peaks[,nfootprints>3]))
