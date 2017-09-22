@@ -72,6 +72,7 @@ find_peaks <- function(y, peak.threshold, footprint.fraction)
 find_footprints <- function(y, peaks)
 {
   npeaks = length(peaks)
+  
   footprints = rep(0,npeaks-1)
   if(npeaks>1)
   {
@@ -103,9 +104,8 @@ find_centre <- function(peaks, footprints)
 ####################
 # Wrap functions
 ####################
-process_peak <- function(i, reads, peaks, min.reads, rel.threshold, abs.threshold, footprint.frac)
+process_peak <- function(i, r, peaks, min.reads, rel.threshold, abs.threshold, footprint.frac)
 {
-  r = reads[id==i]
   cent = NA
   no.footprints=NA
   footprint.pos = NA
@@ -115,16 +115,19 @@ process_peak <- function(i, reads, peaks, min.reads, rel.threshold, abs.threshol
   
   if(no.reads >= min.reads)
   {
-    d = density(r$pos)
+    d = density(r[id==i,pos])
     threshold = max(c(abs.threshold, max(d$y)*rel.threshold))
     p = find_peaks(d$y, threshold, footprint.frac)
-    footprints = find_footprints(d$y, p)
-    no.footprints = length(footprints)
-    if (no.footprints>0)
+    if(length(p)>0)
     {
-      footprint.pos = round(d$x[footprints])
+      footprints = find_footprints(d$y, p)
+      no.footprints = length(footprints)
+      if (no.footprints>0)
+      {
+        footprint.pos = round(d$x[footprints])
+      }
+      cent = round(d$x[find_centre(p, footprints)])
     }
-    cent = round(d$x[find_centre(p, footprints)])
     peaks[id==i, centre := cent]
     peaks[id==i, nfootprints := no.footprints]
   }

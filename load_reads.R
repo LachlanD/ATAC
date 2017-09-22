@@ -8,7 +8,7 @@ library(data.table)
 # Parameters
 #############################
 # Use a small subset of peaks
-small.set = TRUE
+small.set = FALSE
 first.n.peaks = 1000
 
 
@@ -16,8 +16,8 @@ first.n.peaks = 1000
 # Load reads in data.frame, change to data.table? 
 ######################################################
 #reads = read.delim('Data/MODEL_120_peaks.reads', header = TRUE, sep = '\t')
-reads = fread('Data/MODEL_120_peaks.reads', header = TRUE)
-peaks = fread('Data/MODEL_120_peaks.bed', header = FALSE)
+reads = fread('test.counts', header = TRUE)
+peaks = fread('test.bed', header = FALSE)
 colnames(peaks) = c("chr", "start", "end", "summit", "id")
 
 
@@ -39,3 +39,4 @@ peaks[,nreads:=0]
 ###################
 save(reads, file="Data/reads_data.Rba")
 save(peaks, file="Data/peaks_data.Rba")
+

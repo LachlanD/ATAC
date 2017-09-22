@@ -23,7 +23,7 @@ footprint.fraction = 0.9
 #Setup
 #############################
 library(data.table)
-source("ATAC_functions.R")
+source("/media/lachlan/ldryburghEx/ATAC/ATAC_functions.R")
 load("Data/reads_data.Rba")
 ids = unique(reads$id)
 
@@ -62,3 +62,4 @@ for (i in 1:length(ids))
   
   invisible(readline(prompt="Press [enter] to continue"))
 }
+

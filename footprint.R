@@ -25,7 +25,7 @@ rel.threshold = 0.5
 footprint.fraction = 0.9
 
 # Distributed execution (Needed for Windows)
-dist_mem = TRUE
+dist_mem = FALSE
 
 # number of cores to use
 no_cores = 0
@@ -38,7 +38,7 @@ if (no_cores==0)
 ################
 # Run
 ################
-ids = peaks$id
+ids = peaks[,id]
 
 if(dist_mem)
 {
@@ -72,14 +72,16 @@ if(dist_mem)
   }
   
   # Find centres and footprints
-  fp = mclapply(ids, function(x){process_peak(x, reads, peaks, min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction )}, mc.cores=no_cores, mc.preschedule = TRUE)
+  #fp = mclapply(ids, function(x){process_peak(x, reads[id==x], peaks[id==x], min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction )}, mc.cores=no_cores, mc.preschedule = FALSE)
+  fp = lapply(ids, function(x){process_peak(x, reads[id==x], peaks[id==x], min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction )})
   fp = do.call("rbind", fp)
   fp = as.data.table(fp[complete.cases(fp),])
   
-  reads = mclapply(ids, function(x){reads[id==x, cent.pos := pos-peaks[id==x,centre]]}, mc.cores=no_cores, mc.preschedule = FALSE)
+  invisible(lapply(ids, function(x){reads[id==x, cent.pos := pos-peaks[id==x,centre]]}))
 }
 
-
+f <- function(x,pos){list(peaks[id==x, chr], peaks[id==x, start], peaks[id==x, end], pos+peaks[id==x,summit])}
+invisible(fp[, c("chr", "start", "end" , "position") := f(i,footprint.pos), by = i][])
 
 ###########################
 # Save Data structures
@@ -88,3 +90,7 @@ save(fp, file="Data/footprints_data.Rba")
 save(peaks, file="Data/peak_data.Rba")
 save(reads, file="Data/reads_data.Rba")
 
+#############################################
+# Output footprint positions as BED file
+#############################################
+write.table(fp[,c("chr","start","end","position","i")], file="Data/footprint_positions.bed", sep= "\t", quote= FALSE, row.names = FALSE, col.names = FALSE)
