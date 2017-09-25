@@ -4,12 +4,12 @@ import re
 import sys
 import argparse
 
-parser = argparse.ArgumentParser(description="usage: %prog [options] -p [peaks bed files] -a [alignment bam files] -o [optional output file] -s [if bed file contains a summit position] -w [specify a read window width]")
-parser.add_argument("-p", "--peaks", nargs='+', help="specify peaks in bed files")
-parser.add_argument("-a", "--alignments", nargs='+', help="specify sam/bam alignment files")
-parser.add_argument("-o", "--output", nargs='?', type=argparse.FileType('w'), help="specify output file", default=sys.stdout)
-parser.add_argument("-s", "--summit", action="store_true", help="specify if the bed files have a summit position")
-parser.add_argument("-w", "--width", help="specify the window width for extracting reads", default=100)
+parser = argparse.ArgumentParser(description="usage: %prog [options] -p [peak positions bed files] -a [alignment sam/bam files] -o [<optional> output file] -s [set if bed files contain summit positions] -w [<optional> read window width]")
+parser.add_argument("-p", "--peaks", nargs='+', help="bed files containing peak positions", required=True)
+parser.add_argument("-a", "--alignments", nargs='+', help="sam/bam alignment files", required=True)
+parser.add_argument("-o", "--output", nargs='?', type=argparse.FileType('w'), help="<optional> output file", default=sys.stdout)
+parser.add_argument("-s", "--summit", action="store_true", help="set if bed files contain summit positions")
+parser.add_argument("-w", "--width", help="<optional> set a custom read window width (100)", default=100)
 
 args = parser.parse_args()
 
