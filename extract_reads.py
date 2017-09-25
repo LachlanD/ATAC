@@ -2,66 +2,48 @@
 import pysam
 import re
 import sys
+import argparse
 
-samfile1 = pysam.AlignmentFile("JV-22-PE_adapter_trim_s_120_MD.bam", 'rb')
-samfile2 = pysam.AlignmentFile("JV-24-PE_adapt_trim_s_120_MD.bam", 'rb') 
-samfile3 = pysam.AlignmentFile("JV-28-PE_cutadapt_s_120_MD.bam", 'rb')
+parser = argparse.ArgumentParser(description="usage: %prog [options] -p [peaks bed files] -a [alignment bam files] -o [optional output file] -s [if bed file contains a summit position] -w [specify a read window width]")
+parser.add_argument("-p", "--peaks", nargs='+', help="specify peaks in bed files")
+parser.add_argument("-a", "--alignments", nargs='+', help="specify sam/bam alignment files")
+parser.add_argument("-o", "--output", nargs='?', type=argparse.FileType('w'), help="specify output file", default=sys.stdout)
+parser.add_argument("-s", "--summit", action="store_true", help="specify if the bed files have a summit position")
+parser.add_argument("-w", "--width", help="specify the window width for extracting reads", default=100)
 
-print "id\tchr\tpos\tstrand\tinsert"
+args = parser.parse_args()
 
-peaks = open(sys.argv[1])
+out = args.output
 
-refs = samfile1.references
-lens = samfile1.lengths
-
+out.write("id\tchr\tpos\tstrand\tinsert\n")
 
 
-for m in peaks.readlines():
-  sp = m.split()
 
-  if (len(sp)<5):
-    break
+for s in args.alignments:
+    samfile = pysam.AlignmentFile(s, 'rb')
+    refs = samfile.references
+    lens = samfile.lengths
+    for p in args.peaks:
+        f = open(p, 'r')
+        for line in f.readlines():
+            sp = line.split()
 
-  pos = int(sp[3])
-  chr = sp[0]
-  
-  refs = samfile1.references
-  lens = samfile1.lengths
+            chrm = sp[0]
+            if (args.summit):
+                pos = int(sp[3])
+                idn = sp[4]
+            else:
+                pos = int(sp[1])+(int(sp[2])-int(sp[1]))/2
+                idn = sp[3]
 
-  for read in samfile1.fetch(chr, max(0,pos-100),min(pos+100, lens[refs.index(chr)])):
-    if read.is_reverse:
-      strand= "-"
-      start = read.reference_end -pos
+            for read in samfile.fetch(chrm, max(0, pos-args.width), min(pos+args.width, lens[refs.index(chrm)])):
+                if read.is_reverse:
+                    strand="-"
+                    start = read.reference_end-pos
+                else:
+                    strand = "+"
+                    start = read.reference_end + 1 - pos
+                out.write("%s\t%s\t%d\t%s\t%d\n" %(idn,chrm,start,strand,read.template_length)) 
+        f.close()
 
-    else:
-      strand = "+"
-      start = read.reference_start+1 -pos
-    print sp[4] + "\t" + chr + " \t%d\t%s\t%d" %(start, strand, read.template_length)
-  
-  refs = samfile2.references
-  lens = samfile2.lengths
-
-  for read in samfile2.fetch(chr, max(0,pos-100),min(pos+100, lens[refs.index(chr)])):
-    if read.is_reverse:
-      strand= "-"
-      start = read.reference_end -pos
-
-    else:
-      strand = "+"
-      start = read.reference_start+1 -pos
-  
-    print sp[4] + "\t" + chr + " \t%d\t%s\t%d" %(start, strand, read.template_length)
-
-  refs = samfile3.references
-  lens = samfile3.lengths
-
-  for read in samfile3.fetch(chr, max(0,pos-100),min(pos+100, lens[refs.index(chr)])):
-    if read.is_reverse:
-      strand= "-"
-      start = read.reference_end -pos
-
-    else:
-      strand = "+"
-      start = read.reference_start+1 -pos
-
-    print sp[4] + "\t" + chr + " \t%d\t%s\t%d" %(start, strand, read.template_length)
+out.close()
