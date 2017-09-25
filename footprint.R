@@ -1,28 +1,40 @@
+#!/usr/bin/env Rscript
+
 #########################
 # Load
 #########################
 #library(parallel)
 require(data.table)
+require(optparse)
 source("ATAC_functions.R")
 load("Data/reads_data.Rba")
 load("Data/peaks_data.Rba")
 
+option_list = list(
+    make_option(c("-m","--min"), type = "integer", default=500, help="minimum number of reads for a peak to be considered"),
+    make_option(c("-a", "--absolute"), type="numeric", default=0.0, help="absolute threshold for the minimum summit values"),
+    make_option(c("-r", "--relative"), type="numeric", default=0.5, help="realtive threshold for a summit compared to max"),
+    make_option(c("-p", "--prominence", type="numeric"), default=0.9, help="fraction")
+)
+
+opt_parser = OptionParser(option_list = option_list)
+opt = parse_args(opt_parser)
 
 ###################
 # Parameters
 ###################
 
 # Minimum read coverage for a peak to be considered  
-min.reads = 200
+min.reads = opt$min
 
 # Threshold relative to max
-rel.threshold = 0.5
+rel.threshold = opt$relative
 
 # Absolute threshold
- abs.threshold = 0.0
+ abs.threshold = opt$absolute
 
 # Footprint must fall this far below the smaller of the two peaks
-footprint.fraction = 0.9
+footprint.fraction = opt$prominence
 
 # # Distributed execution (Needed for Windows)
 # dist_mem = FALSE
@@ -107,10 +119,14 @@ write.table(fp[,c("chr","start","end","position","i")], file="Data/footprint_pos
 ##########################
 # Print some statistics
 ##########################
+gaps = unlist(lapply(peaks[nfootprints==2,id], function(x)(diff(fp[i==x,position]))))
+
 sprintf("number of peaks: %i", nrow(peaks))
 sprintf("number of footprints: %i", nrow(fp))
 sprintf("number of peaks with 0 footprints %i", sum(peaks[,nfootprints==0]))
 sprintf("number of peaks with 1 footprints %i", sum(peaks[,nfootprints==1]))
 sprintf("number of peaks with 2 footprints %i (%i footprints)", sum(peaks[,nfootprints==2]), sum(peaks[nfootprints==2,nfootprints]))
+sprintf("gap between 2 footprints")
+summary(gaps)
 sprintf("number of peaks with 3 footprints %i (%i footprints)", sum(peaks[,nfootprints==3]), sum(peaks[nfootprints==3,nfootprints]))
 sprintf("number of peaks with >3 footprints %i (%i footprints)", sum(peaks[,nfootprints>3]), sum(peaks[nfootprints>3,nfootprints]))
