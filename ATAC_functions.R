@@ -106,9 +106,6 @@ find_centre <- function(peaks, footprints)
 ####################
 process_peak <- function(i, r, peaks, min.reads, rel.threshold, abs.threshold, footprint.frac)
 {
-  cent = NA
-  no.footprints=NA
-  footprint.pos = NA
   no.reads = nrow(r)
   
   peaks[id==i, nreads := no.reads]
@@ -125,12 +122,21 @@ process_peak <- function(i, r, peaks, min.reads, rel.threshold, abs.threshold, f
       if (no.footprints>0)
       {
         footprint.pos = round(d$x[footprints])
+        cent = round(d$x[find_centre(p, footprints)])
+        peaks[id==i, centre := cent]
+        peaks[id==i, nfootprints := no.footprints]
+        return(data.frame(i, footprint.pos, round(d$x[p[1:length(p)-1]]),round(d$x[p[2:length(p)]])))
+      } else
+      {
+        peaks[id==i, centre := round(d$x[p[1]])]
+        peaks[id==i, nfootprints := 0]
       }
-      cent = round(d$x[find_centre(p, footprints)])
-    }
-    peaks[id==i, centre := cent]
-    peaks[id==i, nfootprints := no.footprints]
+    } 
+  }else
+  {
+    peaks[id==i, centre := NA]
+    peaks[id==i, nfootprints := NA]
   }
   
-  return(data.frame(i, footprint.pos))
+  return(data.frame())
 }

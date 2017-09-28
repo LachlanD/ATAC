@@ -31,7 +31,7 @@ min.reads = opt$min
 rel.threshold = opt$relative
 
 # Absolute threshold
- abs.threshold = opt$absolute
+abs.threshold = opt$absolute
 
 # Footprint must fall this far below the smaller of the two peaks
 footprint.fraction = opt$prominence
@@ -95,14 +95,18 @@ ids = peaks[,id]
 ##########################################################################
 # Fater to run sigle threaded with pointers, multicore deadlocks memory
 ##########################################################################
-fp = lapply(ids, function(x){process_peak(x, reads, peaks, min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction )})
+fp = lapply(ids, function(x){process_peak(x, reads[id==x,], peaks, min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction )})
 fp = do.call("rbind", fp)
+colnames(fp)=c("id", "footprint.pos", "start", "end")
 fp = as.data.table(fp[complete.cases(fp),])
+
 
 invisible(lapply(ids, function(x){reads[id==x, cent.pos := pos-peaks[id==x,centre]]}))
 
-f <- function(x,pos){list(peaks[id==x, chr], peaks[id==x, start], peaks[id==x, end], pos+peaks[id==x,summit])}
-invisible(fp[, c("chr", "start", "end" , "position") := f(i,footprint.pos), by = i][])
+f <- function(x, pos, start, end){list(peaks[id==x, chr], pos+peaks[id==x,summit], start+peaks[id==x,summit], end+peaks[id==x,summit])}
+invisible(fp[, c("chr", "footprint.pos", "start", "end") := f(id,footprint.pos, start, end), by = id][])
+
+complete.peaks = peaks[complete.cases(peaks)]
 
 ######################################
 # Save Data structures
@@ -114,19 +118,19 @@ save(reads, file="Data/reads_data.Rba")
 #############################################
 # Output footprint positions as BED file
 #############################################
-write.table(fp[,c("chr","start","end","position","i")], file="Data/footprint_positions.bed", sep= "\t", quote= FALSE, row.names = FALSE, col.names = FALSE)
+write.table(fp[,c("chr","start","end","footprint.pos","id")], file="Data/footprint_positions.bed", sep= "\t", quote= FALSE, row.names = FALSE, col.names = FALSE)
 
 ##########################
 # Print some statistics
 ##########################
-gaps = unlist(lapply(peaks[nfootprints==2,id], function(x)(diff(fp[i==x,position]))))
+gaps = unlist(lapply(complete.peaks[nfootprints==2,id], function(x)(diff(fp[id==x,footprint.pos]))))
 
-sprintf("number of peaks: %i", nrow(peaks))
+sprintf("number of peaks: %i", nrow(complete.peaks))
 sprintf("number of footprints: %i", nrow(fp))
-sprintf("number of peaks with 0 footprints %i", sum(peaks[,nfootprints==0]))
-sprintf("number of peaks with 1 footprints %i", sum(peaks[,nfootprints==1]))
-sprintf("number of peaks with 2 footprints %i (%i footprints)", sum(peaks[,nfootprints==2]), sum(peaks[nfootprints==2,nfootprints]))
+sprintf("number of peaks with 0 footprints %i", sum(complete.peaks[,nfootprints==0]))
+sprintf("number of peaks with 1 footprints %i", sum(complete.peaks[,nfootprints==1]))
+sprintf("number of peaks with 2 footprints %i (%i footprints)", sum(complete.peaks[,nfootprints==2]), sum(complete.peaks[nfootprints==2,nfootprints]))
 sprintf("gap between 2 footprints")
 summary(gaps)
-sprintf("number of peaks with 3 footprints %i (%i footprints)", sum(peaks[,nfootprints==3]), sum(peaks[nfootprints==3,nfootprints]))
-sprintf("number of peaks with >3 footprints %i (%i footprints)", sum(peaks[,nfootprints>3]), sum(peaks[nfootprints>3,nfootprints]))
+sprintf("number of peaks with 3 footprints %i (%i footprints)", sum(complete.peaks[,nfootprints==3]), sum(complete.peaks[nfootprints==3,nfootprints]))
+sprintf("number of peaks with >3 footprints %i (%i footprints)", sum(complete.peaks[,nfootprints>3]), sum(complete.peaks[nfootprints>3,nfootprints]))
