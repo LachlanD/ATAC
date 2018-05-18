@@ -2,7 +2,7 @@
 
 # search_motif.sh <footprints bed file *.bed> <window size fraction or fixed> <reference genome .fa/fasta> <homer motif set eg. insect> <number of cpus> 
 
-# eg. >$ ./search_motif.sh footprint_positions.bed 60 dm6.fa insect 4 
+# eg. >$ ./search_motifs.sh footprint_positions.bed 60 dm6.fa insect 4 
 
 #require homer and python 3+
 
