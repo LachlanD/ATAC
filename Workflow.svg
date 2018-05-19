@@ -331,7 +331,7 @@
 			</g>
 			<path d="M0 574.02 L35.43 552.76 L70.87 574.02 L35.43 595.28 L0 574.02 Z" class="st3"/>
 			<text x="8.56" y="576.42" class="st4" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Motif of Interest</text>		</g>
-		<g id="shape82-79" v:mID="82" v:groupContext="shape" v:layerMember="0" transform="translate(722.835,-350.787)">
+		<g id="shape82-79" v:mID="82" v:groupContext="shape" v:layerMember="0" transform="translate(742.677,-350.787)">
 			<title>Start/End.82</title>
 			<desc>Transcription Factor of Interest</desc>
 			<v:custProps>
@@ -380,7 +380,7 @@
 			<path d="M7.09 595.28 L7.09 616.58" class="st8"/>
 			<rect v:rectContext="textBkgnd" x="-29.2839" y="604.649" width="72.7413" height="9.59985" class="st10"/>
 			<text x="-29.28" y="611.85" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>List of Enriched Motifs</text>		</g>
-		<g id="shape24-98" v:mID="24" v:groupContext="shape" v:layerMember="0" transform="translate(602.362,-343.701)">
+		<g id="shape24-98" v:mID="24" v:groupContext="shape" v:layerMember="0" transform="translate(623.622,-343.701)">
 			<title>External Data</title>
 			<desc>Binding Site Motif Database</desc>
 			<v:custProps>
@@ -417,22 +417,22 @@
 						 Z" class="st6"/>
 			<text x="16.24" y="571.62" class="st4" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Binding Site <tspan
 						x="10.32" dy="1.2em" class="st7">Motif Database</tspan></text>		</g>
-		<g id="shape25-105" v:mID="25" v:groupContext="shape" v:layerMember="1" transform="translate(722.835,-357.874)">
+		<g id="shape25-105" v:mID="25" v:groupContext="shape" v:layerMember="1" transform="translate(742.677,-357.874)">
 			<title>Dynamic connector.25</title>
 			<desc>TF</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="-22.6772" cy="588.898" width="40" height="17.6036"/>
-			<path d="M0 588.19 L-47.88 588.19" class="st8"/>
-			<rect v:rectContext="textBkgnd" x="-26.4644" y="584.098" width="7.57425" height="9.59985" class="st10"/>
-			<text x="-26.46" y="591.3" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>TF</text>		</g>
-		<g id="shape26-112" v:mID="26" v:groupContext="shape" v:layerMember="1" transform="translate(602.362,-357.874)">
+			<v:textRect cx="-22.0919" cy="588.898" width="40" height="17.6036"/>
+			<path d="M0 588.19 L-46.46 588.19" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-25.8791" y="584.098" width="7.57425" height="9.59985" class="st13"/>
+			<text x="-25.88" y="591.3" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>TF</text>		</g>
+		<g id="shape26-112" v:mID="26" v:groupContext="shape" v:layerMember="1" transform="translate(623.622,-357.874)">
 			<title>Dynamic connector.26</title>
 			<desc>Motif</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="-38.9764" cy="588.189" width="40" height="17.6036"/>
-			<path d="M0 588.19 L-15.28 588.19 A3 3 -180 0 0 -21.28 588.19 L-70.91 588.19" class="st8"/>
-			<rect v:rectContext="textBkgnd" x="-47.984" y="583.389" width="18.0154" height="9.59985" class="st13"/>
-			<text x="-47.98" y="590.59" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Motif</text>		</g>
+			<v:textRect cx="-56.6929" cy="588.898" width="40" height="17.6036"/>
+			<path d="M0 588.19 L-36.54 588.19 A3 3 -180 0 0 -42.54 588.19 L-92.17 588.19" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-65.7005" y="584.098" width="18.0154" height="9.59985" class="st13"/>
+			<text x="-65.7" y="591.3" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Motif</text>		</g>
 		<g id="shape27-119" v:mID="27" v:groupContext="shape" v:layerMember="1" transform="translate(453.543,-357.874)">
 			<title>Dynamic connector.27</title>
 			<desc>Motif Matrix</desc>
@@ -441,7 +441,7 @@
 			<path d="M0 588.19 L-70.91 588.19" class="st8"/>
 			<rect v:rectContext="textBkgnd" x="-59.6089" y="583.389" width="41.2652" height="9.59985" class="st10"/>
 			<text x="-59.61" y="590.59" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Motif Matrix</text>		</g>
-		<g id="shape37-126" v:mID="37" v:groupContext="shape" v:layerMember="0" transform="translate(602.362,-413.15)">
+		<g id="shape37-126" v:mID="37" v:groupContext="shape" v:layerMember="0" transform="translate(623.622,-414.567)">
 			<title>Decision.37</title>
 			<desc>Genome Positions of Interest</desc>
 			<v:custProps>
@@ -477,7 +477,7 @@
 			<path d="M0 572.6 L35.43 549.92 L70.87 572.6 L35.43 595.28 L0 572.6 Z" class="st3"/>
 			<text x="21.52" y="565.4" class="st4" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Genome <tspan
 						x="16.51" dy="1.2em" class="st7">Positions of </tspan><tspan x="22.7" dy="1.2em" class="st7">Interest</tspan></text>		</g>
-		<g id="shape80-134" v:mID="80" v:groupContext="shape" v:layerMember="0" transform="translate(602.362,-499.606)">
+		<g id="shape80-134" v:mID="80" v:groupContext="shape" v:layerMember="0" transform="translate(623.622,-499.606)">
 			<title>Start/End.80</title>
 			<desc>Genes of Interest</desc>
 			<v:custProps>
@@ -513,15 +513,15 @@
 			<path d="M14.17 595.28 L56.69 595.28 A14.1732 14.1732 -180 0 0 56.69 566.93 L14.17 566.93 A14.1732 14.1732 -180 1 0 14.17
 						 595.28 Z" class="st3"/>
 			<text x="7.4" y="583.5" class="st4" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Genes of Interest</text>		</g>
-		<g id="shape33-140" v:mID="33" v:groupContext="shape" v:layerMember="1" transform="translate(630.709,-499.606)">
+		<g id="shape33-140" v:mID="33" v:groupContext="shape" v:layerMember="1" transform="translate(651.969,-499.606)">
 			<title>Dynamic connector.33</title>
 			<desc>Gene Positions</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="7.08661" cy="615.827" width="58.22" height="17.6036"/>
-			<path d="M7.09 595.28 L7.09 629.34" class="st8"/>
-			<rect v:rectContext="textBkgnd" x="-17.1141" y="611.027" width="48.4016" height="9.59985" class="st13"/>
-			<text x="-17.11" y="618.23" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Gene Positions</text>		</g>
-		<g id="shape81-147" v:mID="81" v:groupContext="shape" v:layerMember="0" transform="translate(722.835,-421.654)">
+			<v:textRect cx="7.08661" cy="615.118" width="58.22" height="17.6036"/>
+			<path d="M7.09 595.28 L7.09 627.92" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-17.1141" y="610.318" width="48.4016" height="9.59985" class="st10"/>
+			<text x="-17.11" y="617.52" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Gene Positions</text>		</g>
+		<g id="shape81-147" v:mID="81" v:groupContext="shape" v:layerMember="0" transform="translate(742.677,-421.654)">
 			<title>Start/End.81</title>
 			<desc>Other Sequencing Techniques</desc>
 			<v:custProps>
@@ -558,14 +558,14 @@
 						 595.28 Z" class="st3"/>
 			<text x="6.34" y="578.7" class="st4" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Other Sequencing <tspan
 						x="16.92" dy="1.2em" class="st7">Techniques</tspan></text>		</g>
-		<g id="shape39-154" v:mID="39" v:groupContext="shape" v:layerMember="1" transform="translate(722.835,-428.74)">
+		<g id="shape39-154" v:mID="39" v:groupContext="shape" v:layerMember="1" transform="translate(742.677,-429.449)">
 			<title>Dynamic connector.39</title>
 			<desc>Sequence Positions</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="-21.2598" cy="590.315" width="43.23" height="27.2035"/>
-			<path d="M0 588.19 L-42.57 588.19" class="st8"/>
-			<rect v:rectContext="textBkgnd" x="-37.0643" y="580.715" width="31.6088" height="19.1997" class="st10"/>
-			<text x="-37.06" y="587.92" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Sequence <v:newlineChar/><tspan
+			<v:textRect cx="-21.2598" cy="591.024" width="43.23" height="27.2035"/>
+			<path d="M0 588.9 L-21.26 588.9 L-21.26 587.48 L-41.15 587.48" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-37.0643" y="581.424" width="31.6088" height="19.1997" class="st13"/>
+			<text x="-37.06" y="588.62" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Sequence <v:newlineChar/><tspan
 						x="-35.95" dy="1.2em" class="st7">Positions</tspan></text>		</g>
 		<g id="shape40-162" v:mID="40" v:groupContext="shape" v:layerMember="0" transform="translate(155.906,-265.748)">
 			<title>Process.40</title>
@@ -602,7 +602,7 @@
 			<rect x="0" y="552.756" width="70.8661" height="42.5197" class="st12"/>
 			<text x="10.27" y="571.62" class="st4" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Motif Footprint <tspan
 						x="22.33" dy="1.2em" class="st7">Analysis</tspan></text>		</g>
-		<g id="shape95-169" v:mID="95" v:groupContext="shape" v:layerMember="0" transform="translate(226.772,-216.142)">
+		<g id="shape95-169" v:mID="95" v:groupContext="shape" v:layerMember="0" transform="translate(233.858,-205.512)">
 			<title>Decision.95</title>
 			<desc>Potential TF Interaction</desc>
 			<v:custProps>
@@ -637,16 +637,16 @@
 			<path d="M0 574.02 L35.43 552.76 L70.87 574.02 L35.43 595.28 L0 574.02 Z" class="st3"/>
 			<text x="16.04" y="571.62" class="st4" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Potential TF <tspan
 						x="17.52" dy="1.2em" class="st7">Interaction</tspan></text>		</g>
-		<g id="shape69-176" v:mID="69" v:groupContext="shape" v:layerMember="1" transform="translate(602.362,-428.74)">
+		<g id="shape69-176" v:mID="69" v:groupContext="shape" v:layerMember="1" transform="translate(623.622,-443.622)">
 			<title>Dynamic connector.69</title>
-			<desc>Site Restrictions (Optional)</desc>
+			<desc>Position Restrictions (Optional)</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="-36.8504" cy="588.189" width="62" height="27.2035"/>
-			<path d="M0 588.19 L-70.91 588.19" class="st8"/>
-			<rect v:rectContext="textBkgnd" x="-62.9435" y="578.589" width="52.1864" height="19.1997" class="st13"/>
-			<text x="-62.94" y="585.79" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Site Restrictions<v:newlineChar/><tspan
-						x="-53.33" dy="1.2em" class="st7">(</tspan>Optional)</text>		</g>
-		<g id="shape72-184" v:mID="72" v:groupContext="shape" v:layerMember="0" transform="translate(602.362,-116.929)">
+			<v:textRect cx="-46.1532" cy="603.071" width="76.09" height="27.2035"/>
+			<path d="M0 601.65 L-21.26 601.65 L-21.26 603.07 L-92.17 603.07" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-79.2873" y="593.471" width="66.2684" height="19.1997" class="st10"/>
+			<text x="-79.29" y="600.67" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Position Restrictions<v:newlineChar/><tspan
+						x="-62.63" dy="1.2em" class="st7">(</tspan>Optional)</text>		</g>
+		<g id="shape72-184" v:mID="72" v:groupContext="shape" v:layerMember="0" transform="translate(623.622,-127.559)">
 			<title>Process.72</title>
 			<desc>Compare Motifs</desc>
 			<v:custProps>
@@ -680,7 +680,7 @@
 			</g>
 			<rect x="0" y="552.756" width="70.8661" height="42.5197" class="st12"/>
 			<text x="9.12" y="576.42" class="st4" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Compare Motifs</text>		</g>
-		<g id="shape74-190" v:mID="74" v:groupContext="shape" v:layerMember="0" transform="translate(347.244,-216.142)">
+		<g id="shape74-190" v:mID="74" v:groupContext="shape" v:layerMember="0" transform="translate(375.591,-205.512)">
 			<title>Process.74</title>
 			<desc>Repeated Motifs</desc>
 			<v:custProps>
@@ -714,7 +714,7 @@
 			</g>
 			<rect x="0" y="552.756" width="70.8661" height="42.5197" class="st12"/>
 			<text x="8.36" y="576.42" class="st4" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Repeated Motifs</text>		</g>
-		<g id="shape83-196" v:mID="83" v:groupContext="shape" v:layerMember="0" transform="translate(347.244,-91.007)">
+		<g id="shape83-196" v:mID="83" v:groupContext="shape" v:layerMember="0" transform="translate(375.591,-85.0394)">
 			<title>Start/End.83</title>
 			<desc>Binding Sites</desc>
 			<v:custProps>
@@ -750,15 +750,15 @@
 			<path d="M14.17 595.28 L56.69 595.28 A14.1732 14.1732 -180 0 0 56.69 566.93 L14.17 566.93 A14.1732 14.1732 -180 1 0 14.17
 						 595.28 Z" class="st14"/>
 			<text x="14.68" y="583.5" class="st4" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Binding Sites</text>		</g>
-		<g id="shape93-202" v:mID="93" v:groupContext="shape" v:layerMember="1" transform="translate(637.795,-118.141)">
+		<g id="shape93-202" v:mID="93" v:groupContext="shape" v:layerMember="1" transform="translate(659.055,-127.559)">
 			<title>Dynamic connector.93</title>
 			<desc>TF Interactions</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="-101.146" cy="607.528" width="58.15" height="17.6036"/>
-			<path d="M0 596.49 L0 608.24 L-212.65 608.24" class="st8"/>
-			<rect v:rectContext="textBkgnd" x="-125.311" y="602.728" width="48.3316" height="9.59985" class="st10"/>
-			<text x="-125.31" y="609.93" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>TF Interactions</text>		</g>
-		<g id="shape99-209" v:mID="99" v:groupContext="shape" v:layerMember="0" transform="translate(467.717,-170.079)">
+			<v:textRect cx="-89.1876" cy="622.913" width="58.15" height="17.6036"/>
+			<path d="M0 595.28 L0 623.62 L-205.56 623.62" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-113.353" y="618.114" width="48.3316" height="9.59985" class="st10"/>
+			<text x="-113.35" y="625.31" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>TF Interactions</text>		</g>
+		<g id="shape99-209" v:mID="99" v:groupContext="shape" v:layerMember="0" transform="translate(453.543,-127.559)">
 			<title>Process</title>
 			<desc>Potential Interaction Positions</desc>
 			<v:custProps>
@@ -799,60 +799,60 @@
 		</g>
 		<g id="shape104-222" v:mID="104" v:groupContext="shape" v:layerMember="1" transform="translate(191.339,-343.701)">
 			<title>Dynamic connector.104</title>
-			<path d="M0 595.28 L0 609.45 L191.34 609.45 L191.34 673.27" class="st8"/>
+			<path d="M0 595.28 L-0 609.45 L219.69 609.45 L219.69 683.9" class="st8"/>
 		</g>
 		<g id="shape107-227" v:mID="107" v:groupContext="shape" v:layerMember="1" transform="translate(191.339,-343.701)">
 			<title>Dynamic connector.107</title>
-			<path d="M0 595.28 L-0 609.45 L311.81 609.45 L311.81 719.34" class="st8"/>
+			<path d="M0 595.28 L-0 609.45 L297.64 609.45 L297.64 761.86" class="st8"/>
 		</g>
 		<g id="shape109-232" v:mID="109" v:groupContext="shape" v:layerMember="1" transform="translate(191.339,-265.748)">
 			<title>Dynamic connector.109</title>
-			<path d="M0 595.28 L0 755.84 L148.87 755.84" class="st8"/>
+			<path d="M0 595.28 L0 761.81 L177.21 761.81" class="st8"/>
 		</g>
 		<g id="shape115-237" v:mID="115" v:groupContext="shape" v:layerMember="1" transform="translate(191.339,-265.748)">
 			<title>Dynamic connector.115</title>
 			<desc>Motif-Footprint Offsets</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="-1.6051E-07" cy="614.125" width="85.69" height="17.6036"/>
-			<path d="M0 595.28 L0 623.62 L28.39 623.62" class="st8"/>
-			<rect v:rectContext="textBkgnd" x="-37.9369" y="609.326" width="75.8741" height="9.59985" class="st10"/>
-			<text x="-37.94" y="616.53" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Motif-Footprint Offsets</text>		</g>
-		<g id="shape116-244" v:mID="116" v:groupContext="shape" v:layerMember="1" transform="translate(262.205,-216.142)">
+			<v:textRect cx="-1.6051E-07" cy="619.361" width="85.69" height="17.6036"/>
+			<path d="M0 595.28 L0 634.25 L35.48 634.25" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-37.9369" y="614.562" width="75.8741" height="9.59985" class="st10"/>
+			<text x="-37.94" y="621.76" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Motif-Footprint Offsets</text>		</g>
+		<g id="shape116-244" v:mID="116" v:groupContext="shape" v:layerMember="1" transform="translate(269.291,-205.512)">
 			<title>Dynamic connector.116</title>
 			<desc>TF Recruitment/Complex Formation</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="7.08661" cy="620.079" width="126.77" height="17.6036"/>
-			<path d="M0 595.28 L0 620.08 L117.47 620.08 A3 3 0 1 1 123.47 620.08 L198.47 620.08" class="st8"/>
-			<rect v:rectContext="textBkgnd" x="-51.3891" y="615.279" width="116.952" height="9.59985" class="st10"/>
-			<text x="-51.39" y="622.48" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>TF Recruitment/Complex Formation</text>		</g>
-		<g id="shape117-251" v:mID="117" v:groupContext="shape" v:layerMember="1" transform="translate(297.638,-230.315)">
+			<v:textRect cx="0" cy="628.637" width="126.77" height="17.6036"/>
+			<path d="M0 595.28 L0 651.97 L138.73 651.97 A3 3 0 1 1 144.73 651.97 L177.21 651.97" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-58.4757" y="623.837" width="116.952" height="9.59985" class="st13"/>
+			<text x="-58.48" y="631.04" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>TF Recruitment/Complex Formation</text>		</g>
+		<g id="shape117-251" v:mID="117" v:groupContext="shape" v:layerMember="1" transform="translate(304.724,-219.685)">
 			<title>Dynamic connector.117</title>
 			<desc>Repeats</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="24.8032" cy="588.189" width="40" height="17.6036"/>
-			<path d="M0 588.19 L42.57 588.19" class="st8"/>
-			<rect v:rectContext="textBkgnd" x="11.7292" y="583.389" width="26.148" height="9.59985" class="st10"/>
-			<text x="11.73" y="590.59" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Repeats</text>		</g>
-		<g id="shape119-258" v:mID="119" v:groupContext="shape" v:layerMember="1" transform="translate(538.583,-191.339)">
+			<v:textRect cx="35.4331" cy="588.189" width="40" height="17.6036"/>
+			<path d="M0 588.19 L63.83 588.19" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="22.3591" y="583.389" width="26.148" height="9.59985" class="st13"/>
+			<text x="22.36" y="590.59" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Repeats</text>		</g>
+		<g id="shape119-258" v:mID="119" v:groupContext="shape" v:layerMember="1" transform="translate(524.409,-155.906)">
 			<title>Dynamic connector.119</title>
-			<path d="M0 595.28 L45.5 595.28 L45.5 648.43 L56.74 648.43" class="st8"/>
+			<path d="M0 602.36 L59.68 602.36 L92.17 602.36" class="st8"/>
 		</g>
-		<g id="shape120-263" v:mID="120" v:groupContext="shape" v:layerMember="1" transform="translate(538.583,-191.339)">
+		<g id="shape120-263" v:mID="120" v:groupContext="shape" v:layerMember="1" transform="translate(524.409,-148.819)">
 			<title>Dynamic connector.120</title>
 			<desc>Search Positions</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="26.4996" cy="595.276" width="108.37" height="17.6036"/>
-			<path d="M0 595.28 L45.5 595.28 L45.5 394.72 L99.21 394.72 L99.21 380.5" class="st8"/>
-			<rect v:rectContext="textBkgnd" x="22.7244" y="590.476" width="53.0541" height="9.59985" class="st10"/>
-			<text x="22.72" y="597.68" class="st11" v:langID="3081"><v:paragraph v:indentFirst="45.5" v:horizAlign="1"/><v:tabList/>Search Positions</text>		</g>
-		<g id="shape121-270" v:mID="121" v:groupContext="shape" v:layerMember="1" transform="translate(375.591,-216.142)">
+			<v:textRect cx="33.0514" cy="595.276" width="108.37" height="17.6036"/>
+			<path d="M0 595.28 L59.68 595.28 L59.68 345.01 L134.65 345.01 L134.65 336.57" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="29.2762" y="590.476" width="53.0541" height="9.59985" class="st10"/>
+			<text x="29.28" y="597.68" class="st11" v:langID="3081"><v:paragraph v:indentFirst="45.5" v:horizAlign="1"/><v:tabList/>Search Positions</text>		</g>
+		<g id="shape121-270" v:mID="121" v:groupContext="shape" v:layerMember="1" transform="translate(403.937,-205.512)">
 			<title>Dynamic connector.121</title>
 			<desc>Repeats</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="7.08661" cy="641.339" width="40" height="17.6036"/>
-			<path d="M7.09 595.28 L7.09 685.02" class="st8"/>
-			<rect v:rectContext="textBkgnd" x="-5.98733" y="636.539" width="26.148" height="9.59985" class="st13"/>
-			<text x="-5.99" y="643.74" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Repeats</text>		</g>
+			<v:textRect cx="7.08661" cy="639.12" width="40" height="17.6036"/>
+			<path d="M7.09 595.28 L7.09 680.36" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-5.98733" y="634.32" width="26.148" height="9.59985" class="st13"/>
+			<text x="-5.99" y="641.52" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Repeats</text>		</g>
 		<g id="shape123-277" v:mID="123" v:groupContext="shape" v:layerMember="1" transform="translate(304.724,-357.874)">
 			<title>Dynamic connector.123</title>
 			<desc>Motif Positions</desc>
@@ -898,23 +898,23 @@
 						x="15.88" dy="1.2em" class="st7">Intersection</tspan></text>		</g>
 		<g id="shape124-291" v:mID="124" v:groupContext="shape" v:layerMember="1" transform="translate(488.976,-492.52)">
 			<title>Dynamic connector.124</title>
-			<desc>Footprint Sites</desc>
+			<desc>Footprint Positions</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="-1.6051E-07" cy="615.827" width="57.43" height="17.6036"/>
+			<v:textRect cx="-1.6051E-07" cy="615.827" width="71.51" height="17.6036"/>
 			<path d="M0 595.28 L0 616.16 L-297.64 616.16 L-297.64 694.53" class="st8"/>
-			<rect v:rectContext="textBkgnd" x="-23.8062" y="611.027" width="47.6125" height="9.59985" class="st10"/>
-			<text x="-23.81" y="618.23" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Footprint Sites</text>		</g>
+			<rect v:rectContext="textBkgnd" x="-30.8472" y="611.027" width="61.6945" height="9.59985" class="st10"/>
+			<text x="-30.85" y="618.23" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Footprint Positions</text>		</g>
 		<g id="shape125-298" v:mID="125" v:groupContext="shape" v:layerMember="1" transform="translate(191.339,-343.701)">
 			<title>Dynamic connector.125</title>
-			<path d="M0 595.28 L0 608.52 L-92.13 608.52 L-92.13 866.62 L191.34 866.62 L191.34 855.01" class="st8"/>
+			<path d="M0 595.28 L0 608.52 L-92.13 608.52 L-92.13 868.11 L219.69 868.11 L219.69 860.98" class="st8"/>
 		</g>
 		<g id="shape112-303" v:mID="112" v:groupContext="shape" v:layerMember="1" transform="translate(191.339,-343.701)">
 			<title>Dynamic connector.112</title>
 			<desc>Motif-Footprint Positions</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="2.61889" cy="609.449" width="91.98" height="17.6036"/>
-			<path d="M0 595.28 L0 609.45 L389.75 609.45 A3 3 0 1 1 395.75 609.45 L446.46 609.45 L446.46 772.49" class="st8"/>
-			<rect v:rectContext="textBkgnd" x="-38.4605" y="604.649" width="82.1591" height="9.59985" class="st10"/>
-			<text x="-38.46" y="611.85" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Motif-Footprint Positions</text>		</g>
+			<v:textRect cx="2.9019" cy="609.449" width="91.98" height="17.6036"/>
+			<path d="M0 595.28 L0 609.45 L389.75 609.45 A3 3 0 1 1 395.75 609.45 L467.72 609.45 L467.72 761.86" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-38.1775" y="604.649" width="82.1591" height="9.59985" class="st13"/>
+			<text x="-38.18" y="611.85" class="st11" v:langID="3081"><v:paragraph v:horizAlign="1"/><v:tabList/>Motif-Footprint Positions</text>		</g>
 	</g>
 </svg>
