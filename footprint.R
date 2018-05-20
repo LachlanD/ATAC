@@ -14,7 +14,8 @@ option_list = list(
     make_option(c("-m","--min"), type = "integer", default=500, help="minimum number of reads for a peak to be considered"),
     make_option(c("-a", "--absolute"), type="numeric", default=0.0, help="absolute threshold for the minimum summit values"),
     make_option(c("-r", "--relative"), type="numeric", default=0.5, help="realtive threshold for a summit compared to max"),
-    make_option(c("-p", "--prominence", type="numeric"), default=0.9, help="fraction")
+    make_option(c("-p", "--prominence"), type="numeric", default=0.9, help="minimum fold change of footprint compared to peak"),
+    make_option(c("-b", "--bandwidth"), type="integer", default=NA, help="density bandwidth")
 )
 
 opt_parser = OptionParser(option_list = option_list)
@@ -35,6 +36,13 @@ abs.threshold = opt$absolute
 
 # Footprint must fall this far below the smaller of the two peaks
 footprint.fraction = opt$prominence
+
+# Bandwidth for density smoothing
+bandwidth = opt$bandwidth
+if(is.na(bandwidth))
+{
+  bandwidth="nrd0"
+}
 
 # # Distributed execution (Needed for Windows)
 # dist_mem = FALSE
@@ -95,7 +103,7 @@ ids = peaks[,id]
 ##########################################################################
 # Fater to run sigle threaded with pointers, multicore deadlocks memory
 ##########################################################################
-fp = lapply(ids, function(x){process_peak(x, reads[id==x,], peaks, min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction )})
+fp = lapply(ids, function(x){process_peak(x, reads[id==x,], peaks, min.reads = min.reads, rel.threshold = rel.threshold, abs.threshold = abs.threshold, footprint.frac = footprint.fraction, bandwidth = bandwidth )})
 fp = do.call("rbind", fp)
 colnames(fp)=c("id", "footprint.pos", "start", "end")
 fp = as.data.table(fp[complete.cases(fp),])
