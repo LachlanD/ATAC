@@ -104,7 +104,7 @@ find_centre <- function(peaks, footprints)
 ####################
 # Wrap functions
 ####################
-process_peak <- function(i, r, peaks, min.reads, rel.threshold, abs.threshold, footprint.frac)
+process_peak <- function(i, r, peaks, min.reads, rel.threshold, abs.threshold, footprint.frac, bandwidth)
 {
   no.reads = nrow(r)
   
@@ -112,7 +112,7 @@ process_peak <- function(i, r, peaks, min.reads, rel.threshold, abs.threshold, f
   
   if(no.reads >= min.reads)
   {
-    d = density(r[id==i,pos])
+    d = density(r[id==i,pos], bw = bandwidth)
     threshold = max(c(abs.threshold, max(d$y)*rel.threshold))
     p = find_peaks(d$y, threshold, footprint.frac)
     if(length(p)>0)
