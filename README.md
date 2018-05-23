@@ -1,7 +1,7 @@
 # ATACFactor
 
 ![Workflow Chart](/Workflow.png)
-Format: ![Alt Text](url)
+
 
 
 ## Footprint Calling
