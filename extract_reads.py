@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 import pysam
 import re
 import sys
@@ -27,22 +28,24 @@ for s in args.alignments:
         f = open(p, 'r')
         for line in f.readlines():
             sp = line.split()
-
+            
+            left = int(sp[1])
+            right = int(sp[2])
             chrm = sp[0]
             if (args.summit):
                 pos = int(sp[3])
                 idn = sp[4]
             else:
-                pos = int(sp[1])+(int(sp[2])-int(sp[1]))/2
+                pos = left+(right-left)/2
                 idn = sp[3]
 
-            for read in samfile.fetch(chrm, max(0, pos-args.width), min(pos+args.width, lens[refs.index(chrm)])):
+            for read in samfile.fetch(chrm, max(0, left-args.width), min(right+args.width, lens[refs.index(chrm)])):
                 if read.is_reverse:
                     strand="-"
                     start = read.reference_end-pos
                 else:
                     strand = "+"
-                    start = read.reference_end + 1 - pos
+                    start = read.reference_start + 1 - pos
                 out.write("%s\t%s\t%d\t%s\t%d\n" %(idn,chrm,start,strand,read.template_length)) 
         f.close()
 
