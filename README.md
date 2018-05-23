@@ -1,6 +1,10 @@
-ATACFactor
+# ATACFactor
 
-Footprint Calling
+![Workflow Chart](/Workflow.png)
+Format: ![Alt Text](url)
+
+
+## Footprint Calling
 
 
 Find the footprints within called peaks.
@@ -37,7 +41,7 @@ A footprints bed file wil be produced with the position of each footprint.  The 
 
 
 
-Data Analysis
+## Data Analysis
 
 
 Using Homer to find motifs which are over-represented in footprints.
