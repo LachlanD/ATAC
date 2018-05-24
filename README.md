@@ -61,7 +61,6 @@ Run the search_motifs.sh script with the following arguments:
 
 This will produce an output folder where the motifs can be browsed.
 
-![NRF1 Offset](/NRF1_corrected.png)
 
 To investigate a motif, save the motif matrix *.motif file from homer.
 
@@ -72,6 +71,8 @@ Run the script find_motif.sh with the following arguments:
 4. The number of cpu cores to utilise
 
 This script will out put a number of images showing the relationship between motif and the footprints that it occupies. A <motif>_footprints.bed file is also output.
+	
+![NRF1 Offset](/NRF1_corrected.png)
 
 To investigte interactions between motifs run the compare_motifs.R script with the 2 <motif>_footprints.bed files as arguments.
 This will again output a number of images showing the relationship between the 2 motifs.
