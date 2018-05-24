@@ -1,6 +1,6 @@
 # ATACFactor
 
-![Workflow Chart](/Workflow.png)
+![Workflow Chart](/Images/Workflow.png)
 
 
 
@@ -72,7 +72,7 @@ Run the script find_motif.sh with the following arguments:
 
 This script will out put a number of images showing the relationship between motif and the footprints that it occupies. A <motif>_footprints.bed file is also output.
 	
-![NRF1 Offset](/NRF1_corrected.png)
+![NRF1 Offset](/Images/NRF1_corrected.png)
 
 To investigte interactions between motifs run the compare_motifs.R script with the 2 <motif>_footprints.bed files as arguments.
 This will again output a number of images showing the relationship between the 2 motifs.
