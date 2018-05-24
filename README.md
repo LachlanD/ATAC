@@ -6,10 +6,12 @@
 
 ## Footprint Calling
 
+Requires: [MACS2](https://github.com/taoliu/MACS), [pysam](http://pysam.readthedocs.io/en/latest/index.html), R, python 3+.
+
 
 Find the footprints within called peaks.
 
-Requires peak positions in bed file format. MACS2 calls peaks in a bed file.  
+Requires peak positions in bed file format. MACS calls peaks in a bed file.  
 
 To include the summit positions use xls_to_bed.py to convert the MACS peaks xls file into a bed file. 
 
@@ -46,7 +48,7 @@ A footprints bed file wil be produced with the position of each footprint.  The 
 
 Using Homer to find motifs which are over-represented in footprints.
 
-Note: Requires Homer, bedtools, python 3+, R.
+Note: Requires [Homer](http://homer.ucsd.edu/homer/motif/), [bedtools](http://bedtools.readthedocs.io/en/latest/), python 3+, R.
 
 Choose a window from the centre to search.  Can either be a fraction 0.0 to 1.0 or an integer > 1.  Integers will give a fixed window size.  A fraction will search that proportion of the footprint to neighbouring peak.
 
