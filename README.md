@@ -79,6 +79,8 @@ This will again output a number of images showing the relationship between the 2
 
 To investigate whether a motif is repeated run the repeated_motif.R with the <motif>_footprints.bed file as the argument.
 	
+![Dref Selected](/Images/Dref_selected.png)	
+	
 ## License
 
 [GNU General Public License v3.0](/LICENSE.md)
